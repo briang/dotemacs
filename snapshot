@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function __f () {
+    if [[ ! -d .git ]] ; then
+	echo > /dev/stderr "Not a git repository"
+	return
+    fi
+    local date=$(date +"%Y-%m-%d %T")
+    git add . && git commit -m "snapshot $date"
+}
+__f
+unset -f __f
