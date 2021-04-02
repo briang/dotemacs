@@ -8,7 +8,8 @@ function __f () {
 
     touch ~/.emacs.d/init.el # stop emacs creating ~/.emacs
     emacs -l boot.el emacs.org \
-	  --eval '(org-babel-tangle)' #	  --eval '(kill-emacs)'
+	  --eval '(org-babel-tangle)' --eval '(kill-emacs)'
+    emacs --eval '(byte-compile-file "init.el")'
 }
 
 # emacs -batch -f batch-byte-compile ~/.emacs.d/**/*.el
